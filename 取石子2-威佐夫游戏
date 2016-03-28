@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+#include<iostream>
+#include<algorithm> 
+using namespace std;
+
+int main()
+{
+	int T;
+	cin>>T;
+	while(T--)
+	{	
+		int a,b; 
+		cin>>a>>b;
+		if (b>a)
+		{
+			int k = b - a;	
+			if (a==floor((1 + sqrt(5)) * k / 2) )
+   			{
+   	 			cout<<"B"<<endl; 
+			}	
+			else 
+			{
+				cout<<"A"<<endl; 
+			}
+		}
+		else
+		{
+			int k = a - b;	
+			if (b==floor((1 + sqrt(5)) * k / 2) )
+   			{
+		    	cout<<"B"<<endl; 
+			}
+			else 
+			{
+				cout<<"A"<<endl; 
+			}
+		}
+	} 
+}
