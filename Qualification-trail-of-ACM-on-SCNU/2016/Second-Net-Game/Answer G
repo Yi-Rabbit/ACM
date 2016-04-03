@@ -1,0 +1,62 @@
+#include<iostream>
+#include<iomanip>
+#include<cstring>
+#include<cmath>
+using namespace std;
+double a[1000010];
+double b[1000010];
+double c[1000010];
+int max(int a,int b,int c);
+int max(int a,int b,int c)
+{
+	if(a>=b&&a>=c)return a;
+	if(b>=a&&b>=c)return b;
+	if(c>=b&&c>=a)return c;
+
+}
+
+int main(){
+	int T,n;
+	scanf("%d",&T);
+	while(T--)
+	{
+		int pluslong=2,mullong=2,longest=2;
+		scanf("%d",&n);
+		if(n==1) {
+			scanf("%lf",&a[1]);cout<<1<<endl;
+		}
+		if(n>1){
+			for (int i=0;i<n;i++)
+		{
+			scanf("%lf",&a[i]);
+		}
+		b[0]=a[1]-a[0];
+		if(a[0]!=0)
+		{
+			c[0]=a[1]/a[0];
+		}
+		for (int i=1;i<n-1;i++)
+		{
+			b[i]=a[i+1]-a[i];
+			if(b[i]==b[i-1])
+			{
+				pluslong=pluslong+1;
+			}
+			else pluslong=2;
+			if(a[i]!=0.0)
+			{
+				c[i]=a[i+1]/a[i];
+			}
+			if(c[i]==c[i-1])
+			{
+				mullong=mullong+1;
+			}
+			else mullong=2;
+			longest=max(longest,mullong,pluslong);
+		}
+		 printf("%d\n",longest);
+	}
+		}
+		
+		
+}
