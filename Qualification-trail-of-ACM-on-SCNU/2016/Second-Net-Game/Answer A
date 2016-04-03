@@ -1,0 +1,31 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+long long gcd(long long a,long  long b){
+	long  long r = a%b;
+	while(r!=0){
+		a = b;
+		b = r;
+		r = a%b;
+	}
+	return b;
+}
+int main(){
+	int n;
+	long long temp;
+	long long A,B,C;
+	while(cin>>n){
+		C = 5040;
+		A = (42+(n+1)*(n-5));
+		B = (n*(n-1)*(n-2));
+		temp = gcd(A,C);
+		A  /= temp;
+		C /= temp;
+		temp = gcd(B,C);
+		B /=temp;
+		C /= temp;
+		long long r = A*B*(n-4)*(n-3)/C;
+		cout<<setprecision(30)<<r<<endl;		
+	}	
+	return 0;
+}
