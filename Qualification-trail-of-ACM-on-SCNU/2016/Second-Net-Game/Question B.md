@@ -1,4 +1,4 @@
-[题目网址](http://acm.hust.edu.cn/vjudge/contest/view.action?cid=110995#problem/B)
+[题目网址](http://acm.hust.edu.cn/vjudge/contest/view.action?cid=110996#problem/B)
 
 ###Description
 IT City company developing computer games invented a new way to reward its employees. After a new game release users start buying it actively, and the company tracks the number of sales with precision to each transaction. Every time when the next number of sales is divisible by all numbers from 2 to 10 every developer of this game gets a small bonus.
