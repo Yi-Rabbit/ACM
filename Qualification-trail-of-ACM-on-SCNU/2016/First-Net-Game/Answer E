@@ -1,0 +1,77 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+typedef long long ll;
+#define rep(i,n) for(int i = 0;i < n;i ++)
+#define repe(i,n) for(int i=1;i<=n;i++)
+#define mst(A,k) memset(A,k,sizeof(A))
+
+const ll mod =258280327; 
+int pri[1000005],mu[1000005],use[1000005],_pri;
+int pre_mu[1000005];
+ll G[1000005],T[1000005],F[1000005],S[1000005];
+
+void mobius()
+{
+	mu[1] = 1;
+	G[1] = 1;
+	_pri = 0;
+	for(int i=2; i<=1000000; i++)
+	{
+		if(!use[i])
+		{
+			pri[_pri++] = i;
+			mu[i] = -1;
+			G[i] = 2 % mod;
+		}
+		for(int j=0; j<_pri; j++)
+		{
+			if(i * pri[j] > 1000000) break;
+			use[i * pri[j]] = 1;
+			if(i % pri[j] == 0)
+			{
+				mu[i * pri[j]] = 0;
+				G[i * pri[j]] = G[i];
+				break;
+			}
+			else 
+			{
+				mu[i * pri[j]] = -mu[i];
+				G[i * pri[j]] = G[i] * 2 % mod;
+			}
+		}
+	}
+}
+void get_T()
+{
+	mobius();
+	for(int g=1; g<=1000000; g++)
+	{
+		for(int n=g; n<=1000000; n+=g)
+		{
+			T[n] = (T[n] + G[n / g - 1]) % mod;
+		}
+	}
+}
+void get_FS()
+{
+	get_T();
+	F[1] = S[1] = 1;
+	for(int i=2; i<=1000000; i++)
+	{
+		F[i] = (F[i-1] + 2 * i - 1 - T[i-1]) % mod;
+		S[i] = ((S[i-1] + F[i]) % mod + mod) % mod;
+	}
+}
+int main() {
+	get_FS();
+	int T,n;
+	scanf("%d",&T);
+	while(T--)
+	{
+		scanf("%d",&n);
+		printf("%lld\n",S[n]);
+	}
+	return 0;
+}
