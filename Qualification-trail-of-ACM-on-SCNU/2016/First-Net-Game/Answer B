@@ -1,0 +1,15 @@
+#include<iostream>
+#include <iomanip>
+#include<cmath>
+#include<algorithm>
+using namespace std;
+
+int main()
+{
+	int n;
+	cin>>n;
+	int t;
+	cin>>t;
+	double num=1.000000011;
+	cout<<setprecision(20)<<n*pow(num,t);
+ } 
