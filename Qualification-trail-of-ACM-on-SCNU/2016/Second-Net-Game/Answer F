@@ -1,0 +1,45 @@
+#include<cstring>
+#include <cstdio>
+#include <iostream>
+using namespace std;
+
+int main(){
+	int p,q,c;//p,q表示输入的两个数 ，c用于记数 
+	int T;
+	long long res;
+	int b[10];
+	int n;
+	scanf("%d",&T);
+	int a[100001];//a[i]表示i以下有多少漂亮数
+	a[0]= 0;
+	a[1] = 1;
+	for(int i=2;i<100001;++i)
+	{
+		b[10];//b数组用于判断一个数是否漂亮 
+		memset(b,0,sizeof(b));			
+		n = i;
+		while(n)//各位拆开来判断 
+		{
+			c=n%10;
+			if (b[c]) {
+				break;
+			}
+			n /= 10;
+			b[c] = 1;				
+		}
+		if(!n)
+		{
+			a[i]=a[i-1]+1;
+		}
+		else
+		{
+			a[i]=a[i-1];
+		}
+	}
+	while(T--){
+		scanf("%d%d",&p,&q);			
+		res = a[q] - a[p-1];
+		printf("%d\n",res);
+	}
+	return 0;
+} 
