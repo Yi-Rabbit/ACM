@@ -1,0 +1,28 @@
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+using namespace std;  
+long long fun(long long a, long long b, long long  c){
+	long long res=1;
+	long long  tmp = a;
+	while(b)
+	{
+		if(b&1) 
+			res=res*tmp%c;
+		b>>=1;
+		tmp=tmp*tmp%c;
+	}
+	return res;
+}
+int main(){
+	int T;
+	long long n;
+	long long res;
+	cin>>T;
+	while(T--){
+		cin>>n;
+		res = (fun(2,n-1,1000000007) - 1)%1000000007;
+		cout<<res<<endl;
+	}
+	return 0;
+}
