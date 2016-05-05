@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<string.h>
+int c[1010][1010];
+char result[1010];
+int count=0;
+int main()
+{
+	char a[1010];
+	char b[1010];
+	int alen;
+	int blen;
+	int i,j;
+	scanf("%s %s",a,b);
+	alen=strlen(a);
+	blen=strlen(b);
+	for(i=1;i<=alen;i++)
+	{
+		for(j=1;j<=blen;j++)
+		{
+			if(a[i-1]==b[j-1])
+				c[i][j]=c[i-1][j-1]+1;
+			else
+				c[i][j]=c[i-1][j]>c[i][j-1]?c[i-1][j]:c[i][j-1];
+		}
+	}
+	for(i=alen,j=blen;i>=1&&j>=1;)
+	{
+		if(a[i-1]==b[j-1])
+		{
+			result[count++]=a[i-1];
+			j--;
+			i--;
+		}
+		else
+		{
+			if(c[i-1][j]>c[i][j-1])
+				i--;
+			else
+				j--;
+		}
+	}
+	for(i=count-1;i>=0;i--)
+		printf("%c",result[i]);
+	return 0;
+}
