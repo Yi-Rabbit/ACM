@@ -1,0 +1,16 @@
+#include <iostream>  
+  
+int main()  
+{  
+    int n, p;  
+    std::cin >> n >> p;  
+    int i = 1;  
+    long long res = 1;  
+    for (; i <= n; ++i)  
+    {  
+        res = i * res % p;  
+    }  
+    std::cout << res << std::endl;  
+  
+    return 0;  
+}  
