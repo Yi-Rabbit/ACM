@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int GCD(int, int);
+int main()
+{
+	int x, y;
+	cin >> x>> y;
+	cout <<GCD(x , y) <<endl;
+	return 0;
+}
+
+
+int GCD(int a, int b)
+{
+	int c;
+	if (a>0 && b>0)
+	{
+	while(a > 0)
+	    { 
+	     c=a;
+	     a=b%a;
+	     b=c;
+	    } 
+	     return b;
+         }
+}
