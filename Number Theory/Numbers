@@ -1,0 +1,24 @@
+/*1,10,100,1000...组成序列1101001000...，求这个序列的第N位是0还是1。*/
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+    int T;
+    cin>>T;
+    while(T--)
+    {
+        int n;
+        cin>>n;
+        double m=n;
+        double num=sqrt(double((m-7.0/8.0)*2.0))-1.0/2.0;
+        //cout<<num;
+        if(int(num)==num)
+        {
+            cout<<"1"<<endl;
+        }
+        else{cout<<"0"<<endl;}
+    }
+
+}
