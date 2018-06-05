@@ -1,4 +1,6 @@
-/*1005 大数加法
+/*
+http://www.51nod.com/onlineJudge/questionCode.html#!problemId=1005
+1005 大数加法
 给出2个大整数A,B，计算A+B的结果。
 Input
 第1行：大数A
